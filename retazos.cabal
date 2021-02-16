@@ -32,7 +32,7 @@ library
   import: common
   exposed-modules:     Retazos
   hs-source-dirs:      lib 
-  build-depends:       bytestring ^>= 0.11.0.0
+  build-depends:       bytestring ^>= 0.11.1.0
 
 -- library
 --   import: common
