@@ -7,6 +7,7 @@ import Data.ByteString qualified as B
 import Prelude hiding (lines)
 import Data.List.NonEmpty qualified as N
 
+-- initial index, len
 data Range = Range Int Int deriving (Show)
 
 lineRanges :: ByteString -> [Range]
@@ -20,7 +21,9 @@ lineRanges bytes =
       go index [] lfs@(li : lfs') =
         Range index (index - li) : go (succ li) [] lfs'
       go index [] [] =
-        [Range index (B.length bytes - index)]
+        if index == B.length bytes
+        then []
+        else [Range index (B.length bytes - index)]
    in go 0 (B.elemIndices 0x0A bytes) (B.elemIndices 0x0D bytes)
 
 lines :: ByteString -> [ByteString]
