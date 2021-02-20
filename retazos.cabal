@@ -31,6 +31,7 @@ executable retazos-server
 library
   import: common
   exposed-modules:     Retazos
+                       Retazos.Main
   hs-source-dirs:      lib 
 
 test-suite tests
